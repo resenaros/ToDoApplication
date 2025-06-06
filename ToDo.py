@@ -29,7 +29,7 @@ def add_task():
     # Convert task to title case to maintain consistency (e.g., "walk dog" ➡️ "Walk Dog")
     tasks.append(formatted_task)  # Adds the task to the end of the list
     print(f"\n'{formatted_task}' has been added to the list")
-    print(f"\nUpdated task list:")
+    print("\nUpdated task list:")
     view_task()
 
 
@@ -56,7 +56,7 @@ def delete_task():
                 # Confirmation loop: asks the user to confirm their choice 
                 # (e.g., deleting a task) until valid input ('y' or 'n') is received.
                 while True:
-                    confirm = input (f"Are you sure you want to delete '{task_to_delete}'? (y/n): ").strip().lower()
+                    confirm = input (f"\nAre you sure you want to delete '{task_to_delete}'? (y/n): ").strip().lower()
                     if confirm == 'y':
                         removed_task = tasks.pop(idx) # Removes the selected task
                         print(f"\nTask '{removed_task}' was deleted successfully.")
@@ -79,10 +79,10 @@ def main():
     print("Welcome to the To-Do List Application!") # Greeting message
     print("--------------------------------------")
     # Application loop begins and will continue until the user confirms exit
-    exit_selected = False # Track if the user wants to exit
     while True:
         
         display_menu() # Shows menu options
+        show_return_msg = True # Flag to control finally print message
         try:
             # Prompts the user for a choice
             choice = int(input("\nWhat would you like to do? "))
@@ -104,8 +104,8 @@ def main():
                     confirm = input("\nAre you sure you want to exit? (y/n): ").strip().lower()
                     if confirm == 'y':
                         print("\nYou are exiting the application. Goodbye!")
-                        exit_selected=True
-                        break # Exits the loop and program
+                        show_return_msg = False
+                        return # Exits the entire main() function and ends the program
                     elif confirm == 'n':
                         print("\nExit canceled.")
                         break
@@ -115,7 +115,7 @@ def main():
                 print("\nThat's not a valid input") # Handles menu options out of the pre-determined range
         finally:
             # Always return to menu unless exiting
-            if not exit_selected:
+            if show_return_msg:
                 print("\nReturning to the main menu...")
 
 # Entry point: Runs the application
