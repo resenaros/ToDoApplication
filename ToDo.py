@@ -16,7 +16,7 @@ def display_menu():
     print("2: View Task")
     print("3: Delete Task")
     print("4: Exit Application")
-    
+# MARK: Add task function    
 def add_task():
     """Prompts the user for a task, formats it, and adds it to the task list if valid."""
     task=input("\nWhat task would you like to add to your list? ").strip()

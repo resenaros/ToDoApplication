@@ -69,6 +69,9 @@ _Command Line Proficiency:_ Gained hands-on experience using the Bash terminal f
 - `rm script.py` – Delete a file from the terminal.
 
 _Version Control:_ Utilized Git and GitHub for version tracking, committing changes, and hosting the project repository.
+Some common bash commands used for version control were:
+
+- `git add . && git commit -m "Readme.md file created" && git push`
 
 ---
 
